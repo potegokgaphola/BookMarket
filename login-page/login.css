@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+.login-form {
+    margin: 0 auto;
+    width: 600px;
+    height: 130px;
+    border: 1px solid red;
+}
+
+.remember-me {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    border: 1px solid green;
+}
+
+.remember-me div {
+    display: block;
+    border: 1px dotted red;
+}
+
+.remember-me input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.reset-password {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.reset-password div {
+    display: block;
+}
+
+.sign-up {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.sign-up div {
+    display: block;
+}
+
+p {
+    margin: 0;
+}
+
+.reset-password div:last-child {
+    margin-left: auto;
+}
+
+.sign-up div:last-child {
+    margin-left: auto;
+}
+
+.underline {
+    background-color: red;
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    background-color: green;
+    text-align: center;
+    font-weight: 700;
+    height: 30px;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 700;
+    color: green;
+}
+
+input {
+    width: 100%;
+    border: none;
+}
+
+form > div {
+    position: relative;
+    margin: 25px auto;
+}
+
+form > div > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transition: 0.2s;
+}
+
+input:focus + label {
+    font-size: small;
+    top: 100%;
+    margin-top: -36px;
+}
+
+input:valid + label {
+    font-size: small;
+    top: 100%;
+    margin-top: -36px; 
+}
+
+@media only screen and (max-width: 500px) {
+    .login-form {
+        width: 300px;
+    }
+}

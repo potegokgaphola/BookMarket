@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+
+    <div class="login-form">
+        <form action="" method="post">
+            <div>
+                <input type="email" name="username" id="username" required>
+                <label for="username">Email</label>
+                <span class="underline"></span>
+            </div>
+            <div>
+                <input type="password" name="password" id="password" required>
+                <label for="password">Password</label>
+                <span class="underline"></span>
+            </div>
+            <button id="login-btn" type="submit">LOGIN</button>
+            <div class="remember-me">
+                <div>
+                    <p>Remember me?</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="remember-me" id="remember-me">
+                </div>
+            </div>
+            <div class="reset-password">
+                <div>
+                    <p>Can't remember password?</p>
+                </div>
+                <div>
+                    <a href="#">RESET</a>
+                </div>
+            </div>
+            <div class="sign-up">
+                <div>
+                    <p>Don't have an account?</p>
+                </div>
+                <div>
+                    <a href="#">SIGN UP</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./login.js"></script>
+</body>
+</html>
