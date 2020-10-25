@@ -5,8 +5,8 @@ $('#signup-btn').click(function() {
     const password = $('#password').val();
 
     $.ajax({
-        type: "POST",
-        url: "/signup",
+        type: 'POST',
+        url: 'signup',
         contentType: 'application/json',
         data: JSON.stringify({
             firstname,

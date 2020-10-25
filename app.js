@@ -6,8 +6,8 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/app/public'));
 
-app.post('signup', function(req, res) {
-    console.log(SON.stringify({
+app.post('/signup', function(req, res) {
+    console.log(JSON.stringify({
         userId: 1,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -24,9 +24,4 @@ app.post('signup', function(req, res) {
     }))
 })
 
-app.listen(8000);
-
-// var userId = 0;
-// getUserNextId() {
-//     return userId++;
-// }
+var server = app.listen(8000);
