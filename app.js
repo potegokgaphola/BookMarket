@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/app/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.post('/signup', function(req, res) {
     console.log(JSON.stringify({
