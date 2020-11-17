@@ -22,6 +22,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid red;
 }
 
 .footer {
@@ -74,6 +75,7 @@ a {
     height: 500px;
     margin-right: 100px;
     width: 40%;
+    border: 1px solid green;
 }
 
 img {
@@ -84,15 +86,16 @@ img {
 .login-signup {
     padding: 30px;
     width: 40%;
+    border: 1px solid green;
 }
 
 #login-form {
-    width: 600px;
+    width: 100%;
     height: 200px;
 }
 
 #signup-form {
-    width: 600px;
+    width: 100%;
     height: 200px;
 }
 
@@ -184,11 +187,14 @@ input:valid + label {
 }
 
 @media only screen and (max-width: 500px) {
-    #login-form {
-        width: 300px;
-    }
-
-    #signup-form {
-        width: 300px;
-    }
+ .main-content {
+     flex-direction: column-reverse;
+ }
+ .login-signup {
+     width: 80%;
+     height: 40%;
+ }
+ .slide-show {
+     height: 35%;
+ }
 }
