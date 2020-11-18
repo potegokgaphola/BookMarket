@@ -4,6 +4,7 @@
   "description": "Market place for book sellers and buyers",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,11 @@
     "body-parser": "^1.19.0",
     "consolidate": "^0.16.0",
     "express": "^4.17.1",
-    "mustache": "^4.0.1"
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
   }
 }

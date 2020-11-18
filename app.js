@@ -1,38 +1,35 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var engine = require('consolidate');
+const express = require('express');
+
+const app = express();
+const bodyParser = require('body-parser');
+const path = require('path');
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname, '/public');
-app.engine('html', engine.mustache);
-app.set('view engine', 'html');
-// app.get('/', function(req, res) {
-//     res.render('index')
-// })
+app.use(express.static(`${__dirname}/public`));
+app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 
-app.get('/home', function(req, res) {
-    res.render('login')
-})
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
 
-app.post('/signup', function(req, res) {
-    console.log(JSON.stringify({
-        userId: 1,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username,
-        password: req.body.password,
-    }))
-    res.type('json')
-    res.end(JSON.stringify({
-        userId: 1,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username,
-        password: req.body.password,
-    }))
-})
+app.post('/signup', (req, res) => {
+  // eslint-disable-next-line no-console
+  console.log(JSON.stringify({
+    userId: 1,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    username: req.body.username,
+    password: req.body.password,
+  }));
+  res.type('json');
+  res.end(JSON.stringify({
+    userId: 1,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    username: req.body.username,
+    password: req.body.password,
+  }));
+});
 
-var server = app.listen(8000);
+app.listen(8000);
