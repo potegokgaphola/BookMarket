@@ -1,3 +1,6 @@
+const firebase = require('firebase');
+
+/* eslint-disable no-unused-vars */
 $(() => {
   const lastform = sessionStorage.getItem('lastform');
   if (lastform === 'signup') {
@@ -34,6 +37,7 @@ $('#login-btn').click(async (event) => {
 
 $('#signup-btn').click(async (event) => {
   event.preventDefault();
+  // eslint-disable-next-line no-unused-vars
   const firstname = document.getElementById('firstname');
   const lastname = document.getElementById('lastname');
   const email = document.getElementById('signp-username');
