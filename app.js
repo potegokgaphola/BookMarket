@@ -23,15 +23,17 @@ const nav = [
 ];
 
 app.use(bodyParser.json());
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 const startPageRouter = require('./src/routes/startPage')(nav);
+const authRouter = require('./src/routes/authRoutes')();
 
 app.use('/', startPageRouter);
+app.use('/auth', authRouter);
 
 app.get('/', (req, res) => {
   res.render('index',

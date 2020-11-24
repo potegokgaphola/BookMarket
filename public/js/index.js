@@ -52,9 +52,23 @@ $('#signup-btn').click(async (event) => {
   const email = document.getElementById('signp-username');
   const password = document.getElementById('signup-password');
   const confirmpassword = document.getElementById('confirm-password');
-
+  const user = {
+    firstname: firstname.value,
+    lastname: lastname.value,
+    email: email.value,
+    password: password.value,
+    cpassword: confirmpassword.value,
+  };
   try {
     // await auth.createUserWithEmailAndPassword(email.value, password.value);
+    $.ajax({
+      type: 'POST',
+      url: 'auth/signUp',
+      data: user,
+      success(respose) {
+        console.info(`server respose ${respose}`);
+      }
+    });
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
