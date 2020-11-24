@@ -4,14 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <header>
-        <ol>
-            <%for(let i=0; i < nav.length; i++){%>
-                <li><a href="<%=nav[i].link %> "><%=nav[i].title %> </a></li>
-            <% } %> 
-        </ol>
+        <div class="navbar">
+            <ol>
+                <%for(let i=0; i < nav.length; i++){%>
+                    <li><a href="<%=nav[i].link %> "><%=nav[i].title %> </a></li>
+                <% } %> 
+            </ol>
+        </div>
     </header>
+    <div class="main-content">
+        <div class="slide-show">
+            <img src="/assets/img/janko-ferlic-sfL_QOnmy00-unsplash.jpg" alt="">
+        </div>
+        <div class="login-signup">
+            <div id="login-form" class="hidden">
+                <form action="" method="post">
+                    <div>
+                        <input type="email" name="login-username" id="login-username" required>
+                        <label for="login-username">Email</label>
+                        <span class="underline"></span>
+                    </div>
+                    <div>
+                        <input type="password" name="login-password" id="login-password" required>
+                        <label for="login-password">Password</label>
+                        <span class="underline"></span>
+                    </div>
+                    <button id="login-btn" type="submit">LOGIN</button>
+                    <div class="account-opt remember-me">
+                        <div>
+                            <p>Remember me?</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="remember-me" id="remember-me">
+                        </div>
+                    </div>
+                    <div class="account-opt reset-password">
+                        <div>
+                            <p>Can't remember password?</p>
+                        </div>
+                        <div>
+                            <a href="#">RESET</a>
+                        </div>
+                    </div>
+                    <div class="account-opt sign-up">
+                        <div>
+                            <p>Don't have an account?</p>
+                        </div>
+                        <div>
+                            <a id="signup-a-btn" href="javascript:void(0)">SIGN UP</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="signup-form" class="hidden">
+                <form action="">
+                    <div>
+                        <input type="text" name="firstname" id="firstname" required>
+                        <label for="firstname">First Name</label>
+                        <span class="underline"></span>
+                    </div>
+                    <div>
+                        <input type="text" name="lastname" id="lastname" required>
+                        <label for="lastname">Last Name</label>
+                        <span class="underline"></span>
+                    </div>
+                    <div>
+                        <input type="email" name="signp-username" id="signp-username" required>
+                        <label for="signp-username">Email</label>
+                        <span class="underline"></span>
+                    </div>
+                    <div>
+                        <input type="password" name="signup-password" id="signup-password" required>
+                        <label for="signup-password">Password</label>
+                        <span class="underline"></span>
+                    </div>
+                    <div>
+                        <input type="password" name="confirm-password" id="confirm-password" required>
+                        <label for="confirm-password">Confirm Password</label>
+                        <span class="underline"></span>
+                    </div>
+                    <button id="signup-btn" type="submit">SIGN UP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer"><p>This website is written and maitained by <small>potegokgaphola98@gamil.com</small></p></div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+    <script src="/js/index.js"></script>
+
 </body>
 </html>

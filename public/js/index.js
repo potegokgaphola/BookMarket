@@ -1,6 +1,15 @@
-const firebase = require('firebase');
+// const firebase = require('firebase');
 
-/* eslint-disable no-unused-vars */
+function showSignupForm() {
+  $('#signup-form').removeClass('hidden');
+  $('#login-form').addClass('hidden');
+}
+
+function showLoginForm() {
+  $('#signup-form').addClass('hidden');
+  $('#login-form').removeClass('hidden');
+}
+
 $(() => {
   const lastform = sessionStorage.getItem('lastform');
   if (lastform === 'signup') {
@@ -45,7 +54,7 @@ $('#signup-btn').click(async (event) => {
   const confirmpassword = document.getElementById('confirm-password');
 
   try {
-    await auth.createUserWithEmailAndPassword(email.value, password.value);
+    // await auth.createUserWithEmailAndPassword(email.value, password.value);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
@@ -55,18 +64,8 @@ $('#signup-btn').click(async (event) => {
   }
 });
 
-function showSignupForm() {
-  $('#signup-form').removeClass('hidden');
-  $('#login-form').addClass('hidden');
-}
-
-function showLoginForm() {
-  $('#signup-form').addClass('hidden');
-  $('#login-form').removeClass('hidden');
-}
-
 function signOut() {
-  auth.signOut();
+  // auth.signOut();
 }
 
 // Your web app's Firebase configuration
@@ -82,6 +81,6 @@ const firebaseConfig = {
   measurementId: 'G-02HGWR23T6',
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-const auth = firebase.auth();
+// firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
+// const auth = firebase.auth();
