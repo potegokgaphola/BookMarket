@@ -4,7 +4,7 @@
   "description": "Market place for book sellers and buyers",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app",
+    "start": "set DEBUG=app:* & nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,9 +20,11 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "consolidate": "^0.16.0",
+    "debug": "^4.3.1",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
+    "mssql": "^6.2.3",
     "nodemon": "^2.0.6"
   },
   "devDependencies": {

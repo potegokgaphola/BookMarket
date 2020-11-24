@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+    mssql:
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=Is7This7Enough7
+        ports:
+            - '1433:1433'
+        image: 'mcr.microsoft.com/mssql/server'

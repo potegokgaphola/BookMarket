@@ -3,6 +3,17 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const mssql = require('mssql');
+require('debug')('app');
+
+const config = {
+  user: 'sa',
+  password: 'Is7This7Enough7',
+  server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
+  database: 'BookMarket'
+};
+
+mssql.connect(config).catch((err) => console.error(`database connection error ${err}`));
 
 const port = process.env.PORT || 8000;
 const nav = [
