@@ -3,17 +3,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const mssql = require('mssql');
+// const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 require('debug')('app');
 
-const config = {
-  user: 'sa',
-  password: 'Is7This7Enough7',
-  server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
-  database: 'BookMarket'
-};
-
-mssql.connect(config).catch((err) => console.error(`database connection error ${err}`));
 
 const port = process.env.PORT || 8000;
 const nav = [
@@ -22,8 +16,14 @@ const nav = [
   { link: '/privacy', title: 'Privacy' },
 ];
 
+// user auth
+app.use(cookieParser());
+app.use(session({ secret: 'book-market-super-secret-token' }));
+require('./src/config/passport.js')(app);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 app.set('views', './src/views');

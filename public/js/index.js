@@ -73,8 +73,8 @@ $('#signup-btn').click(async (event) => {
     // eslint-disable-next-line no-console
     console.error(error);
   } finally {
-    showLoginForm();
-    sessionStorage.setItem('lastform', 'login');
+    // showLoginForm();
+    // sessionStorage.setItem('lastform', 'login');
   }
 });
 
