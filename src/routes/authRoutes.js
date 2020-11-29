@@ -84,6 +84,13 @@ function router() {
     });
 
   authRouter.route('/profile')
+    .all((req, res, next) => { // add this to any router you want proctect using .use()
+      if (req.user) {
+        next();
+      } else {
+        res.redirect('/');
+      }
+    })
     .get((req, res) => {
       res.json(req.user);
     });
