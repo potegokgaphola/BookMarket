@@ -1,23 +1,24 @@
 const express = require('express');
-const mssql = require('mssql');
 const debug = require('debug')('app:startPage');
+const databaseService = require('../services/dbconnection');
 
 const startPageRouter = express.Router();
 
 function router(nav) {
   startPageRouter.route('/home')
-    .get((req, res) => {
-      const request = new mssql.Request();
-      request.query('select * from Users')
-        .then((result) => {
-          debug(result);
-          console.info(`Users ${result}`);
-        })
-        .catch((err) => console.error(`error getting users ${err}`));
-      res.render('home',
-        {
-          nav
-        });
+    .get(async (req, res) => {
+      try {
+        const pool = await databaseService.dbConnectionPool;
+        const request = pool.request();
+        const result = await request.query('select * from Users');
+        debug(`Users ${result}`);
+        res.render('home',
+          {
+            nav
+          });
+      } catch (error) {
+        debug(`error getting users ${err}`);
+      }
     });
 
   startPageRouter.route('/about')

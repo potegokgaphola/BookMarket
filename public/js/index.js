@@ -28,15 +28,16 @@ $('#signup-a-btn').click((event) => {
 $('#login-btn').click(async (event) => {
   event.preventDefault();
   const email = document.getElementById('login-username');
-  const password = document.getElementById('login-password');
+  // const password = document.getElementById('login-password');
 
   try {
-    await auth.signInWithEmailAndPassword(email.value, password.value);
+    // await auth.signInWithEmailAndPassword(email.value, password.value);
     $.ajax({
       type: 'GET',
       url: '/home',
       success() {
         console.info(`User ${email.value} has logged in`);
+        window.location = '/home';
       },
     });
   } catch (error) {
@@ -78,22 +79,22 @@ $('#signup-btn').click(async (event) => {
   }
 });
 
-function signOut() {
-  // auth.signOut();
-}
+// function signOut() {
+//   // auth.signOut();
+// }
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyDaZPkHZHF07NxYfmTxtnKi0t0N4ozaGlg',
-  authDomain: 'bookmarket-b87b9.firebaseapp.com',
-  databaseURL: 'https://bookmarket-b87b9.firebaseio.com',
-  projectId: 'bookmarket-b87b9',
-  storageBucket: 'bookmarket-b87b9.appspot.com',
-  messagingSenderId: '67210480007',
-  appId: '1:67210480007:web:385b1c328dc0ec4966eb22',
-  measurementId: 'G-02HGWR23T6',
-};
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyDaZPkHZHF07NxYfmTxtnKi0t0N4ozaGlg',
+//   authDomain: 'bookmarket-b87b9.firebaseapp.com',
+//   databaseURL: 'https://bookmarket-b87b9.firebaseio.com',
+//   projectId: 'bookmarket-b87b9',
+//   storageBucket: 'bookmarket-b87b9.appspot.com',
+//   messagingSenderId: '67210480007',
+//   appId: '1:67210480007:web:385b1c328dc0ec4966eb22',
+//   measurementId: 'G-02HGWR23T6',
+// };
 // Initialize Firebase
 // firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
